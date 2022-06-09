@@ -13,7 +13,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.grandexchange.GrandExchangeOfferSlot;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,7 +22,7 @@ import java.io.IOException;
 @PluginDescriptor(
 	name = "FlipAssistant"
 )
-public class GeOfferExporter extends Plugin
+public class geofferexporter extends Plugin
 {
 	@Inject
 	private Client client;
