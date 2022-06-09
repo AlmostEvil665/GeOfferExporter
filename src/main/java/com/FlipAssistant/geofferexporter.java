@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @Slf4j
 @PluginDescriptor(
-	name = "FlipAssitant"
+	name = "Flip Assistant"
 )
 public class geofferexporter extends Plugin
 {
@@ -33,13 +33,13 @@ public class geofferexporter extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		log.info("Example started!");
+		log.info("Flip Assistant started!");
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
-		log.info("Example stopped!");
+		log.info("Flip Assistant stopped!");
 	}
 
 	@Subscribe
@@ -92,19 +92,10 @@ public class geofferexporter extends Plugin
 			return false;
 		}
 	}
-
-	@Subscribe
-	public void onGameStateChanged(GameStateChanged gameStateChanged)
-	{
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says Hello", null);
-		}
-	}
-
 	@Provides
 	geofferexporterconfig provideConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(geofferexporterconfig.class);
 	}
+
 }
