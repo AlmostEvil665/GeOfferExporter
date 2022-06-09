@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @Slf4j
 @PluginDescriptor(
-	name = "FlipAssistant"
+	name = "FlipAssitant"
 )
 public class geofferexporter extends Plugin
 {
@@ -28,7 +28,7 @@ public class geofferexporter extends Plugin
 	private Client client;
 
 	@Inject
-	private GeOfferExporterConfig config;
+	private geofferexporterconfig config;
 
 	@Override
 	protected void startUp() throws Exception
@@ -54,8 +54,10 @@ public class geofferexporter extends Plugin
 			items = items + offer.getItemId() + '\n';
 		}
 
-		CreateFile("C:\\temp\\items.txt");
-		WriteToFile("C:\\temp\\items.txt", items);
+		String filename = System.getProperty("user.home") + "\\.runelite\\FlipAssistant_FlipIDs.txt";
+
+		CreateFile(filename);
+		WriteToFile(filename, items);
 
 	}
 
@@ -101,8 +103,8 @@ public class geofferexporter extends Plugin
 	}
 
 	@Provides
-	GeOfferExporterConfig provideConfig(ConfigManager configManager)
+	geofferexporterconfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(GeOfferExporterConfig.class);
+		return configManager.getConfig(geofferexporterconfig.class);
 	}
 }

@@ -5,7 +5,7 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
 @ConfigGroup("example")
-public interface GeOfferExporterConfig extends Config
+public interface geofferexporterconfig extends Config
 {
 	@ConfigItem(
 		keyName = "greeting",
