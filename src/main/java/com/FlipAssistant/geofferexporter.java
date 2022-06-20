@@ -27,19 +27,29 @@ public class geofferexporter extends Plugin
 	@Inject
 	private Client client;
 
-	@Inject
-	private geofferexporterconfig config;
-
 	@Override
 	protected void startUp() throws Exception
 	{
 		log.info("Flip Assistant started!");
+		if(!isWindows())
+			shutDown();
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
 		log.info("Flip Assistant stopped!");
+	}
+
+	public static String getOsName()
+	{
+		String OS = new String();
+		if(OS == null) { OS = System.getProperty("os.name"); }
+		return OS;
+	}
+	public static boolean isWindows()
+	{
+		return getOsName().startsWith("Windows");
 	}
 
 	@Subscribe
@@ -78,8 +88,7 @@ public class geofferexporter extends Plugin
 		}
 	}
 
-	public static boolean WriteToFile(String filename, String text)
-	{
+	public static boolean WriteToFile(String filename, String text) {
 		try {
 			FileWriter myWriter = new FileWriter(filename);
 			myWriter.write(text);
@@ -91,11 +100,6 @@ public class geofferexporter extends Plugin
 			e.printStackTrace();
 			return false;
 		}
-	}
-	@Provides
-	geofferexporterconfig provideConfig(ConfigManager configManager)
-	{
-		return configManager.getConfig(geofferexporterconfig.class);
 	}
 
 }
